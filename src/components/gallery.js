@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './global-components/navbar';
-import PageHeader from './global-components/page-header';
+import PageHeader from './global-components/Page_header';
 import Gallery from './section-components/gallery';
 import Ads from './section-components/ads-v2';
 import Subscribe from './section-components/subscribe';

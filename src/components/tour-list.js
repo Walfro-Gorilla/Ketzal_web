@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './global-components/navbar';
-import PageHeader from './global-components/page-header';
+import PageHeader from './global-components/Page_header';
 import TourLIst from './section-components/tour-list';
 import Subscribe from './section-components/subscribe';
 import Footer from './global-components/footer';

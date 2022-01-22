@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './global-components/navbar';
-import PageHeader from './global-components/page-header';
+import PageHeader from './global-components/Page_header';
 import Intro from './section-components/intro-v3';
 import About from './section-components/about';
 import History from './section-components/history';

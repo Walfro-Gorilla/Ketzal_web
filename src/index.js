@@ -39,6 +39,9 @@ class Root extends Component {
 	                    <Route path="/tour-list" component={TourList} />
 	                    <Route path="/tour-list-v2" component={TourListV2} />
 	                    <Route path="/tour-list-v3" component={TourListV3} />
+						
+	                    <Route path="/tour-details/:id" component={TourDetails} />
+
 	                    <Route path="/tour-details" component={TourDetails} />
 	                    <Route path="/destination-list" component={DestinationLIst} />
 	                    <Route path="/destination-list-v2" component={DestinationLIstV2} />
