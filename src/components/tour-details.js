@@ -15,6 +15,10 @@ const TourDetailsPage = () => {
     //Obtenemos el ID del url
     const {id} = useParams();
 
+    const [servicio, setServicio] = React.useState([])
+    
+    
+
           
     
    //conectamos a la BD y obtenemos datos al cargar el componente
@@ -26,12 +30,12 @@ const TourDetailsPage = () => {
 
             const db = firebase.firestore()
             const doc = await db.collection('clcServicios').doc(id).get()
-            const servicioData = doc.data() 
-            console.log('aaraydta: ',servicioData)
+            const arrayData = doc.data() 
+            console.log('aaraydta: ',arrayData)
             //
-            
+            setServicio(arrayData)
 
-            console.log('Servicio: ',id,servicioData.servicio);
+            console.log('Servicio: ',id,arrayData.servicio);
             
         } catch (error) {
             console.log('FALLO en:',error)                
@@ -46,8 +50,8 @@ const TourDetailsPage = () => {
 
     return <div>
         <Navbar />
-        <PageHeader data= {servicioData}/>
-        <TourDetails />
+        <PageHeader servicio={servicio} />
+        <TourDetails servicio={servicio} />
         <Subscribe />
         <Footer />
     </div>

@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 
 const Page_header = (props) => {
 
-	let HeaderTitle =  'hello'
-	let publicUrl = process.env.PUBLIC_URL + '/'
+	let HeaderTitle =  props.servicio.servicio
 	let Subheader =  HeaderTitle
 
+	console.log(props.servicio.imgurl);
+
+
 	return (
-		<div className="breadcrumb-area jarallax" style={{ backgroundImage: 'url(' + publicUrl + 'assets/img/bg/1.png)' }}>
+		<div className="breadcrumb-area jarallax" style={{ backgroundImage: 'url('+ props.servicio.imgurl +')' }}>
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-12">
