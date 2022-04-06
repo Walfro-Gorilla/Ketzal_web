@@ -19,7 +19,7 @@ class Banner extends Component {
 			              <div className="col-lg-9 col-sm-8">
 			                <div className="banner-inner">
 			                  <p className="banner-cat s-animate-1">Basaseachi, Creel y Barrancas del Cobre</p>
-			                  <h2 className="banner-title s-animate-2">Reconecta <br /> 2022</h2>
+			                  <h2 className="banner-title s-animate-2">Reconecta abril <br /> 2022</h2>
 			                </div>
 			              </div>
 			              <div className="col-lg-3 col-sm-4">
