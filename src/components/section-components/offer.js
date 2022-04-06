@@ -30,9 +30,9 @@ const Offer = (props) => {
 							<div className="destinations-list-slider">
 
 								{
-									 props.servicios.map((servicio) => {
+									props.servicios.map((servicio) => {
 										return (
-											<Service servicio={servicio} key={servicio.id} />
+										<Service servicio={servicio} key={servicio.id} />
 										)
 									})
 								}

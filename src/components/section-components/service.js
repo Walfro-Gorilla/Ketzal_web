@@ -13,8 +13,8 @@ const service = (props) => {
             <div className="d-list-slider-item"  >
                 <div className="single-destinations-list text-center">
                     <div className="thumb">
-                        <span className="d-list-tag">{props.servicio.proovedor}</span>
-                        <img src={props.servicio.imgurl} alt="list" />
+                        <span className="d-list-tag">{props.servicio.tipo}</span>
+                        <img src={props.servicio.imgUrl} alt="list" />
                         <div className="d-list-btn-wrap">
                             <div className="d-list-btn viaje-go-top">
                                 <Link className="btn btn-yellow" to={`/tour-details/${props.servicio.id}`} >Aparta ¡YA! <i className="fa fa-paper-plane" /></Link>
@@ -22,7 +22,7 @@ const service = (props) => {
                         </div>
                     </div>
                     <div className="details">
-                        <h4 className="title">{props.servicio.servicio}</h4>
+                        <h4 className="title">{props.servicio.proovedor}</h4>
                         <p className="content">{props.servicio.descripcion}</p>
                         <ul className="tp-list-meta border-bt-dot">
                             <li><i className="fa fa-calendar-o" /> {props.servicio.fecha}</li>
@@ -31,7 +31,7 @@ const service = (props) => {
                         </ul>
                         <div className="tp-price-meta tp-price-meta-cl">
                             <p>Precio</p>
-                            <h2>{props.servicio.variantes.costo} <small>$</small></h2>
+                            <h2>{props.servicio.habilitado} <small>$</small></h2>
                             <del>620<span>$</span></del>
                         </div>
                     </div>

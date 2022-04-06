@@ -8,18 +8,18 @@ const Page_header = (props) => {
 	let HeaderTitle =  props.servicio.servicio
 	let Subheader =  HeaderTitle
 
-	console.log(props.servicio.imgurl);
+	console.log(props.servicio.imgUrl);
 
 
 	return (
-		<div className="breadcrumb-area jarallax" style={{ backgroundImage: 'url('+ props.servicio.imgurl +')' }}>
+		<div className="breadcrumb-area jarallax" style={{ backgroundImage: 'url('+ props.servicio.imgUrl +')' }}>
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-12">
 						<div className="breadcrumb-inner">
 							<h1 className="page-title">{HeaderTitle}</h1>
 							<ul className="page-list">
-								<li><Link to="/">Home</Link></li>
+								<li><Link to="/">Inicio</Link></li>
 								<li>{Subheader}</li>
 							</ul>
 						</div>

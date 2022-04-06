@@ -163,10 +163,13 @@ const Tour_details = (props) => {
                   </div>
                 </div>
               </div>
+
+
               <div className="package-included-location">
                 <h4 className="single-page-small-title">Your Itinerary</h4>
                 <div className="row">
-                  <div className="col-lg-4 col-md-4">
+
+                <div className="col-lg-4 col-md-4">
                     <div className="single-blog">
                       <div className="p-list">
                         <div className="list">1</div>
@@ -182,6 +185,7 @@ const Tour_details = (props) => {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 col-md-4">
                     <div className="single-blog">
                       <div className="p-list">
@@ -198,6 +202,7 @@ const Tour_details = (props) => {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 col-md-4">
                     <div className="single-blog single-blog-after-none">
                       <div className="p-list">
@@ -214,8 +219,13 @@ const Tour_details = (props) => {
                       </div>
                     </div>
                   </div>
+
+                  
+
                 </div>
               </div>
+
+
               <div className="host-area">
                 <div className="single-host-wrap text-center">
                   <div className="thumb">

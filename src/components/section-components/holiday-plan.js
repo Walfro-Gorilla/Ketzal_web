@@ -30,7 +30,7 @@ const HolidayFun = (props) => {
 								<div className="col-lg-3 col-sm-6" key={servicio.id}>
 									<div className="single-destinations-list style-two wow animated fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.1s">
 										<div className="thumb">
-											<img src={servicio.imgurl} alt="list" />
+											<img src={servicio.imgUrl} alt="list" />
 										</div>
 										<div className="details">
 											<p className="location"><img src={publicUrl + "assets/img/icons/1.png"} alt="map" />Maldives</p>
