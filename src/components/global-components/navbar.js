@@ -26,7 +26,7 @@ class Navbar extends Component {
 			      <div className="nav-right-content">
 			        <ul className="pl-0">
 			          <li className="top-bar-btn-booking">
-			            <Link className="btn btn-yellow" to="/tour-maza-2021">Carnaval 2022 <i className="fa fa-paper-plane" /></Link>
+			            <Link className="btn btn-yellow" to="/tour-maza-2021">Reconecta 2022 <i className="fa fa-paper-plane" /></Link>
 			          </li>
 			          <li className="tp-lang">
 			            <div className="tp-lang-wrap">
@@ -101,12 +101,12 @@ class Navbar extends Component {
 			    <div className="nav-right-content">
 			      <ul>
 			        <li>
-			          <Link className="btn btn-blue" to="/tour-maza-2021">Carnaval 2022<i className="fa fa-paper-plane" /></Link>
+			          <Link className="btn btn-blue" to="/tour-maza-2021">Reconecta 2022<i className="fa fa-paper-plane" /></Link>
 			        </li>
 			        <li className="tp-lang">
 			          <div className="tp-lang-wrap">
 			            <select className="select single-select">			              
-			              <option value={1}>Español</option>
+			              <option value={1}>Español Mx</option>
 			            </select>
 			          </div>
 			        </li>

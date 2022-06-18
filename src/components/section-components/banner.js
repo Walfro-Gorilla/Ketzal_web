@@ -18,8 +18,8 @@ class Banner extends Component {
 			            <div className="row">
 			              <div className="col-lg-9 col-sm-8">
 			                <div className="banner-inner">
-			                  <p className="banner-cat s-animate-1">Basaseachi, Creel y Barrancas del Cobre</p>
-			                  <h2 className="banner-title s-animate-2">Reconecta abril <br /> 2022</h2>
+			                  <p className="banner-cat s-animate-1">Rekowata, Basaseachi, Creel y Barrancas del Cobre</p>
+			                  <h2 className="banner-title s-animate-2">Reconecta<br /> 2022</h2>
 			                </div>
 			              </div>
 			              <div className="col-lg-3 col-sm-4">
@@ -32,22 +32,22 @@ class Banner extends Component {
 			                  <div className="col-sm-4 s-animate-3">
 			                    <div className="tp-price-meta">
 			                      <p>desde</p>
-			                      <h2>1,996 <small>$</small></h2>
+			                      <h2>2,450 <small>$</small></h2>
 			                      <p className="tp-price-meta-details">precio<span> x viajero.</span></p>
 			                    </div>
 			                  </div>
 			                  <div className="col-sm-4 s-animate-4">
 			                    <div className="tp-price-meta">
 			                      <p>2 noches</p>
-			                      <h2>Bus + Hotel</h2>
+			                      <h2>Bus+ Hotel+ Desayunos</h2>
 			                      <p className="tp-price-meta-details">Te llevamos <span>y traemos seguro.</span></p>
 			                    </div>
 			                  </div>
 			                  <div className="col-sm-4 s-animate-5">
 			                    <div className="tp-price-meta">
 			                      <p>Fecha de tour:</p>
-			                      <h2>11</h2>
-			                      <p className="tp-price-meta-details">Febrero <span>...y cada mes</span></p>
+			                      <h2>Cada Mes</h2>
+			                      <p className="tp-price-meta-details">del <span>2022</span></p>
 			                    </div>
 			                  </div>
 			                </div>
@@ -92,8 +92,8 @@ class Banner extends Component {
 			                  <div className="col-sm-4 s-animate-5">
 			                    <div className="tp-price-meta">
 			                      <p>Fechas disponibles:</p>
-			                      <h2>11</h2>
-			                      <p className="tp-price-meta-details">Febrero <span>y cada mes...</span></p>
+			                      <h2>Cada Mes</h2>
+			                      <p className="tp-price-meta-details">del <span> 2022...</span></p>
 			                    </div>
 			                  </div>
 			                </div>
@@ -124,15 +124,15 @@ class Banner extends Component {
 			                  <div className="col-sm-4 s-animate-3">
 			                    <div className="tp-price-meta">
 			                      <p>Precios desde:</p>
-			                      <h2>900 <small>$</small></h2>
+			                      <h2>1,000 <small>$</small></h2>
 			                      <p className="tp-price-meta-details">viaje de Creel <span>a estacion Divisadero</span></p>
 			                    </div>
 			                  </div>
 			                  <div className="col-sm-4 s-animate-4">
 			                    <div className="tp-price-meta">
-			                      <p>ademas visitaremos:</p>
-			                      <h2>Basaseachi, Cusarare, Lago Arareko y mas...</h2>
-			                      <p className="tp-price-meta-details">Hotels <span>to choice</span></p>
+			                      <p>Visitaremos:</p>
+			                      <h2>Basaseachi, Rekowata, Arareko</h2>
+			                      <p className="tp-price-meta-details">y <span>mas</span></p>
 			                    </div>
 			                  </div>
 			                  <div className="col-sm-4 s-animate-5">

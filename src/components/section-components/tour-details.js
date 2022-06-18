@@ -6,6 +6,8 @@ const Tour_details = (props) => {
 
   let publicUrl = process.env.PUBLIC_URL + '/'
   let imagealt = 'image'
+  console.log('props: ',props)
+  console.log('costo 2: ',props.servicio.variantes)
 
   return (
 
@@ -15,17 +17,19 @@ const Tour_details = (props) => {
           <div className="container">
             <div className="gallery-filter-area row">
               <div className="gallery-sizer col-1" />
+
               {/* gallery-item */}
               <div className="tp-gallery-item col-md-5 col-sm-6 mb-10">
                 <div className="tp-gallery-item-img">
                   <div className="thumbnails">
                     <img src={publicUrl + "assets/img/tour-details/1.png"} alt="image" />
                     <div className="video-popup-btn">
-                      <a href="https://www.youtube.com/watch?v=c7XEhXZ_rsk" className="video-play-btn mfp-iframe" tabIndex={0}><i className="fa fa-play" /></a>
+                      <a href="https://www.youtube.com/watch?v=HmUwRFjLOqY" className="video-play-btn mfp-iframe" tabIndex={0}><i className="fa fa-play" /></a>
                     </div>
                   </div>
                 </div>
               </div>
+
               {/* gallery-item */}
               <div className="tp-gallery-item col-md-3 col-sm-6">
                 <div className="tp-gallery-item-img">
@@ -71,7 +75,7 @@ const Tour_details = (props) => {
               <div className="col-xl-3 col-lg-4">
                 <div className="details">
                   <p className="location mb-0"><i className="fa fa-map-marker" />{props.servicio.proovedor}</p>
-                  <h4 className="title">Bali Province</h4>
+                  <h4 className="title">{props.servicio.intinerario}</h4>
                   <p className="content">3 days 2 person</p>
                   <div className="tp-review-meta">
                     <i className="ic-yellow fa fa-star" />
@@ -79,26 +83,26 @@ const Tour_details = (props) => {
                     <i className="ic-yellow fa fa-star" />
                     <i className="ic-yellow fa fa-star" />
                     <i className="fa fa-star" />
-                    <span>4.0</span>
+                    <span>4.6</span>
                   </div>
                   <div className="all-tags">
-                    <a href="#">Adventures</a>
-                    <a href="#">Local special ties</a>
-                    <a href="#">Natural</a>
-                    <a href="#">Travel</a>
+                    <a href="#">Eco-Turismo</a>
+                    <a href="#">Sierra</a>
+                    <a href="#">Naturaleza</a>
+                    <a href="#">Recreativo</a>
                   </div>
                 </div>
               </div>
               <div className="col-xl-9 col-lg-8">
                 <div className="book-list-warp">
-                  <p className="book-list-content">Just booked! Get your spot before it's too late.</p>
+                  <p className="book-list-content">¡Aparata en linea! Y obten tu kit viajero.</p>
                   <div className="tp-price-meta">
-                    <p>Price</p>
-                    <h2>775 <small>$</small></h2>
+                    <p>Precio</p>
+                    <h2>{props.servicio.opcion} <small>$</small></h2>
                   </div>
                 </div>
                 <ul className="tp-list-meta border-tp-solid">
-                  <li className="ml-0"><i className="fa fa-calendar-o" /> 8 Oct</li>
+                  <li className="ml-0"><i className="fa fa-calendar-o" />{props.servicio.intinerario}</li>
                   <li><i className="fa fa-clock-o" /> 4 Days</li>
                   <li><i className="fa fa-users" />2 Person</li>
                   <li><i className="fa fa-snowflake-o" /> Relaxing</li>

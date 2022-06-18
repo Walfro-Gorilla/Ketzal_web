@@ -12,7 +12,7 @@ const Page_header = (props) => {
 
 
 	return (
-		<div className="breadcrumb-area jarallax" style={{ backgroundImage: 'url('+ props.servicio.imgUrl +')' }}>
+		<div className="breadcrumb-area jarallax" style={{ backgroundImage: 'url('+ props.servicio.imgurl +')' }}>
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-12">

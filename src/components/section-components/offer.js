@@ -29,18 +29,14 @@ const Offer = (props) => {
 						<div className="col-xl-9 col-lg-10 offset-xl-1 order-lg-12">
 							<div className="destinations-list-slider">
 
+								{/* Mapeamos todos los servicios en un contenedor */}
 								{
-									props.servicios.map((servicio) => {
+									props.servicios.map( (servicio) => {
 										return (
-										<Service servicio={servicio} key={servicio.id} />
+											<Service servicio={servicio} key={servicio.id} />
 										)
 									})
 								}
-				
-
-
-
-
 
 							</div>
 						</div>

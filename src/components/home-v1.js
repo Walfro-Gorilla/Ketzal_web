@@ -13,12 +13,12 @@ import Subscribe from './section-components/subscribe';
 import Footer from './global-components/footer';
 
 //Importamos firebase
-import {firebase} from '../firebase'
+import { firebase } from '../firebase'
 
 const Home_V1 = () => {
 
     //STATE de servicios activos
-    const [servicios,setServicios] = React.useState([])
+    const [servicios, setServicios] = React.useState([])
 
     //conectamos a la BD y obtenemos datos al cargar el componente
     React.useEffect(() => {
@@ -31,16 +31,16 @@ const Home_V1 = () => {
                 db.collection('clcServicios').onSnapshot((querySnapshot) => {
                     const docs = [];
                     querySnapshot.forEach((doc) => {
-                        docs.push({...doc.data(), id:doc.id});
+                        docs.push({ ...doc.data(), id: doc.id });
                     });
                     setServicios(docs)
                 })
                 //const arrayData = docs.map(doc => ({ id: doc.id, ...doc.data() }))
                 //console.log(arrayData)
                 //
-                
+
             } catch (error) {
-                console.log('FALLO en:',error)                
+                console.log('FALLO en:', error)
             }
 
         }
@@ -53,9 +53,12 @@ const Home_V1 = () => {
         <Banner />
         <Search />
         {/* <Intro /> */}
-        <Offer servicios={servicios} />
-        <Video /> 
-        <HolidayPlan servicios={servicios}/>
+        <React.StrictMode>
+            <Offer servicios={servicios} />
+
+        </React.StrictMode>
+        <Video />
+        <HolidayPlan servicios={servicios} />
         <Review />
         {/* <BlogSection /> */}
         {/* <Ads /> */}
