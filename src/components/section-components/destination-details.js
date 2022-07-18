@@ -158,6 +158,7 @@ class DestinatioDetails extends Component {
                     </div>
                   </div>
                   {/* destinations-client-review-slider end */}
+
                   {/* trip-plan start */}
                   <div className="trip-plan-area">
                     <h4 className="single-page-small-title">Plan a trip</h4>
@@ -220,8 +221,10 @@ class DestinatioDetails extends Component {
                         </div>
                       </div>
                     </div>
+
                   </div>
                   {/* trip-plan End */}
+                  
                   {/* location-details start */}
                   <div className="location-details">
                     <h4 className="single-page-small-title">Good To Know</h4>

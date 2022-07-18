@@ -48,7 +48,7 @@ class Searach extends Component {
 		          </div>
 		        </div>
 		        <div className="col-lg-2 col-md-4 order-12">
-		          <Link className="btn btn-yellow" to="/tour-list"><i className="ti-search" /> Buscar</Link>
+		          <Link className="btn btn-yellow" to="/"><i className="ti-search" /> Buscar</Link>
 		        </div>
 		      </div>
 		    </div>

@@ -26,7 +26,7 @@ const service = (props) => {
 
                     <div className="details">
                         <h4 className="title">{props.servicio.servicio}</h4>
-                        <p className="content">{props.servicio.descripcion}</p>
+                        <p className="content">{props.servicio.intinerario}</p>
                         <ul className="tp-list-meta border-bt-dot">
                             <li><i className="fa fa-calendar-o" /> {props.servicio.fecha}</li>
                             <li><i className="fa fa-clock-o" /> 3 dias</li>

@@ -6,6 +6,8 @@ import Service from './service.js'
 
 const Offer = (props) => {
 
+	console.log('PROPS MAP: ', props.servicios)
+
 
 
 

@@ -7,51 +7,42 @@ import Footer from './global-components/footer';
 import { useParams } from 'react-router-dom';
 
 //Importamos firebase
-import {firebase} from '../firebase'
+import { firebase } from '../firebase'
 
 
 const TourDetailsPage = () => {
 
     //Obtenemos el ID del url
-    const {id} = useParams();
-
+    const { id } = useParams();
     const [servicio, setServicio] = React.useState([])
-    
-    
 
-          
-    
-   //conectamos a la BD y obtenemos datos al cargar el componente
-   React.useEffect(() => {
+    //conectamos a la BD y obtenemos datos al cargar el componente
+    React.useEffect(() => {
 
-    const obtenerDatos = async () => {
+        const obtenerDatos = async () => {
 
-        try {
+            try {
 
-            const db = firebase.firestore()
-            const doc = await db.collection('clcServicios').doc(id).get()
-            const arrayData = doc.data() 
-            console.log('aaraydta: ',arrayData)
-            //
-            setServicio(arrayData)
+                const db = firebase.firestore()
+                const doc = await db.collection('clcServicios').doc(id).get()
+                const arrayData = doc.data()
+                console.log('Arraydata: ', arrayData)
+                //
+                setServicio(arrayData)
 
-            console.log('Servicio: ',id,arrayData.servicio);
-            
-        } catch (error) {
-            console.log('FALLO en:',error)                
+                console.log('Servicio: ', id, arrayData.servicio);
+
+            } catch (error) {
+                console.log('FALLO en:', error)
+            }
         }
-
-    }
-
-    obtenerDatos()
-}, [])
-
-    
+        obtenerDatos()
+    }, [])
 
     return <div>
-        <Navbar />
+        
         <PageHeader servicio={servicio} />
-        <TourDetails servicio={servicio} />
+        <TourDetails servicio={servicio} variants={servicio.vaiantes} /> 
         <Subscribe />
         <Footer />
     </div>

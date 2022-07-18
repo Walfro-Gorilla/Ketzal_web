@@ -28,13 +28,15 @@ const Home_V1 = () => {
             try {
 
                 const db = firebase.firestore()
-                db.collection('clcServicios').onSnapshot((querySnapshot) => {
-                    const docs = [];
-                    querySnapshot.forEach((doc) => {
-                        docs.push({ ...doc.data(), id: doc.id });
-                    });
-                    setServicios(docs)
-                })
+                db.collection('clcServicios')
+                    .where('habilitado', '==', true)
+                    .onSnapshot((querySnapshot) => {
+                        const docs = [];
+                        querySnapshot.forEach((doc) => {
+                            docs.push({ ...doc.data(), id: doc.id });
+                        });
+                        setServicios(docs)
+                    })
                 //const arrayData = docs.map(doc => ({ id: doc.id, ...doc.data() }))
                 //console.log(arrayData)
                 //
@@ -49,7 +51,6 @@ const Home_V1 = () => {
     }, [])
 
     return <div>
-        <Navbar />
         <Banner />
         <Search />
         {/* <Intro /> */}

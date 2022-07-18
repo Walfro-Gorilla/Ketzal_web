@@ -86,7 +86,7 @@
 /* Medium Layout: 1550px. */
 @media only screen and (max-width: 1550px){
     .navbar-area .nav-container .desktop-logo img {
-        max-width: 115px;
+        max-width: 150px;
     }
     .sidebar-area-4 {
         margin-left: 60px;
@@ -313,7 +313,7 @@
         font-size: 16px;
     }*/
     .tour-details-area .package-included-location {
-        margin-bottom: 84px;
+        margin-bottom: 70px;
     }
 
 

@@ -42,7 +42,7 @@ class Review extends Component {
 								</div>
 								<div className="media-body">
 									<h6>Claudia Bañuelos</h6>
-									<p>Viejro Ketzal</p>
+									<p>Viajero Ketzal</p>
 								</div>
 							</div>
 						</div>

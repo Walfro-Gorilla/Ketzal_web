@@ -33,11 +33,11 @@ const HolidayFun = (props) => {
 											<img src={servicio.imgurl} alt="list" />
 										</div>
 										<div className="details">
-											<p className="location"><img src={publicUrl + "assets/img/icons/1.png"} alt="map" />Maldives</p>
+											<p className="location"><img src={publicUrl + "assets/img/icons/1.png"} alt="map" />{servicio.intinerario}</p>
 											<h4 className="title">{servicio.servicio}</h4>
-											<p className="content">7 Days Tour on 2 person</p>
+											<p className="content">{servicio.date2}</p>
 											<div className="tp-price-meta">
-												<h2>{620} <small>$</small></h2>
+												<h2>{servicio.variantes[0].contado} <small>$</small></h2>
 											</div>
 										</div>
 									</div>

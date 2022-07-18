@@ -1,13 +1,40 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import parse from 'html-react-parser';
+
+import IncluyeFicha from './incluyeFicha';
+import NoIncluyeFicha from './noIncluyeFicha';
+
+import Itinerario from './itinerario';
+
+import TripPlans from './tripPlans';
+
 
 const Tour_details = (props) => {
 
   let publicUrl = process.env.PUBLIC_URL + '/'
   let imagealt = 'image'
-  console.log('props: ',props)
-  console.log('costo 2: ',props.servicio.variantes)
+  let url = props.servicio.linkYT
+  let urlMaps = props.servicio.linkMaps
+
+  let count = 0
+
+
+  console.log('props details: ', props)
+  console.log('props INCLUYE: ', props.servicio.incluye)
+
+  //Calculamos los dias totales del tour
+  var day1 = new Date(props.servicio.date1);
+  var day2 = new Date(props.servicio.date2);
+
+  var difference = Math.abs(day2 - day1);
+  var daysLeft = difference / (1000 * 3600 * 24)
+
+  console.log('Dias restantes: ', daysLeft)
+
+  // const [dataIn, setDataIn] = React.useState();
+  // setDataIn(props.servicio.incluye)
+
+
+  console.log('INCLUYE----->', props.servicio.incluye)
 
   return (
 
@@ -19,64 +46,70 @@ const Tour_details = (props) => {
               <div className="gallery-sizer col-1" />
 
               {/* gallery-item */}
-              <div className="tp-gallery-item col-md-5 col-sm-6 mb-10">
+              <div className="tp-gallery-item col-md-5 col-sm-12 col-xs-12 mb-10">
                 <div className="tp-gallery-item-img">
                   <div className="thumbnails">
-                    <img src={publicUrl + "assets/img/tour-details/1.png"} alt="image" />
+                    <img src={props.servicio.imgurlGaleria6} key={props.servicio.id} alt="image" />
                     <div className="video-popup-btn">
-                      <a href="https://www.youtube.com/watch?v=HmUwRFjLOqY" className="video-play-btn mfp-iframe" tabIndex={0}><i className="fa fa-play" /></a>
+                      <a href={url} className="video-play-btn mfp-iframe" tabIndex={0}><i className="fa fa-play" /></a>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* gallery-item */}
-              <div className="tp-gallery-item col-md-3 col-sm-6">
+              <div className="tp-gallery-item col-md-3 col-sm-12 col-xs-12">
                 <div className="tp-gallery-item-img">
                   <a href="#" data-effect="mfp-zoom-in">
-                    <img src={publicUrl + "assets/img/tour-details/2.png"} alt="image" />
+                    <img src={props.servicio.imgurlGaleria5} key={props.servicio.id} alt="image" />
                   </a>
                 </div>
               </div>
+
               {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
+              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
                 <div className="tp-gallery-item-img">
                   <a href="#" data-effect="mfp-zoom-in">
-                    <img src={publicUrl + "assets/img/tour-details/3.png"} alt="image" />
+                    <img src={props.servicio.imgurlGaleria4} key={props.servicio.id} alt="image" />
                   </a>
                 </div>
               </div>
+
               {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
+              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
                 <div className="tp-gallery-item-img">
                   <a href="#" data-effect="mfp-zoom-in">
-                    <img src={publicUrl + "assets/img/tour-details/4.png"} alt="image" />
+                    <img src={props.servicio.imgurlGaleria3} key={props.servicio.id} alt="image" />
                   </a>
                 </div>
               </div>
+
               {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
+              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
                 <div className="tp-gallery-item-img">
                   <a href="#" data-effect="mfp-zoom-in">
-                    <img src={publicUrl + "assets/img/tour-details/5.png"} alt="image" />
+                    <img src={props.servicio.imgurlGaleria2} key={props.servicio.id} alt="image" />
                   </a>
                 </div>
               </div>
+
               {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
+              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
                 <div className="tp-gallery-item-img">
                   <a href="#" data-effect="mfp-zoom-in">
-                    <img src={publicUrl + "assets/img/tour-details/6.png"} alt="image" />
+                    <img src={props.servicio.imgurlGaleria1} key={props.servicio.id} alt="image" />
                   </a>
                 </div>
               </div>
+
             </div>
+
             <div className="row">
               <div className="col-xl-3 col-lg-4">
                 <div className="details">
-                  <p className="location mb-0"><i className="fa fa-map-marker" />{props.servicio.proovedor}</p>
-                  <h4 className="title">{props.servicio.intinerario}</h4>
-                  <p className="content">3 days 2 person</p>
+                  <p className="location mb-0"><i className="fa fa-map-marker" />{props.servicio.servicio}</p>
+                  <h4 className="title">{props.servicio.proovedor}</h4>
+                  <p className="content">{props.servicio.intinerario}</p>
                   <div className="tp-review-meta">
                     <i className="ic-yellow fa fa-star" />
                     <i className="ic-yellow fa fa-star" />
@@ -85,133 +118,79 @@ const Tour_details = (props) => {
                     <i className="fa fa-star" />
                     <span>4.6</span>
                   </div>
-                  <div className="all-tags">
+                  {/* <div className="all-tags">
                     <a href="#">Eco-Turismo</a>
                     <a href="#">Sierra</a>
                     <a href="#">Naturaleza</a>
                     <a href="#">Recreativo</a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="col-xl-9 col-lg-8">
                 <div className="book-list-warp">
-                  <p className="book-list-content">¡Aparata en linea! Y obten tu kit viajero.</p>
+                  <p className="book-list-content">¡Aparta en linea! Y obten tu kit viajero.</p>
                   <div className="tp-price-meta">
-                    <p>Precio</p>
-                    <h2>{props.servicio.opcion} <small>$</small></h2>
+                    <p>desde</p>
+                    <h2>  <small>$</small></h2>
                   </div>
                 </div>
                 <ul className="tp-list-meta border-tp-solid">
-                  <li className="ml-0"><i className="fa fa-calendar-o" />{props.servicio.intinerario}</li>
-                  <li><i className="fa fa-clock-o" /> 4 Days</li>
-                  <li><i className="fa fa-users" />2 Person</li>
-                  <li><i className="fa fa-snowflake-o" /> Relaxing</li>
-                  <li><i className="fa fa-star" /> 4.3</li>
+                  <li className="ml-0"><i className="fa fa-calendar-o" />{props.servicio.date1} - {props.servicio.date2} </li>
+                  <li><i className="fa fa-clock-o" /> {daysLeft} dias /  {daysLeft - 1} noches </li>
+                  <li><i className="fa fa-users" />viaje grupal</li>
+                  {/* <li><i className="fa fa-star" /> 4.7</li> */}
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
       <div className="container">
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-12">
             <div className="tour-details-wrap">
-              <h4 className="single-page-small-title">Write A Review</h4>
-              <p>From its distinct half-hour time zone to its occasional June snowshower, Newfoundland runs on its own time. By August, the summer crowds have dwindled, berries hang ripe and heavy on their stems, and the landscape is ablaze with wildflowers. Join us at the peak of Newfoundland’s late summer season as we wind our way through the famously Celtic stretch of coastline known as the Irish Loop, exploring its unique history, folklore, cuisine, and breathtaking seaside scenery. We’ll enjoy dinners made from freshly foraged ingredients on a quiet dock, chat with a boat-builder in the midst of making a vessel, and learn how to craft heritage cheese from local experts while surrounded by an adorable, bleating tribe of tiny baby goats. As we make our way along the Loop, we’ll encounter countless characters, places, and stories that give this corner of the island its charm, tenacity, and unique flair.</p>
-              <p> This trip is offered by Atlas Obscura. Once you've reserved your spot, our team will be in touch to help you prepare for the trip. Please note that flights to and from St. John's are not included in the trip cost. This trip is limited by 12 travelers.</p>
-              <div className="package-included-area">
-                <h4 className="single-page-small-title">Included</h4>
-                <div className="row">
-                  <div className="col-xl-4 col-sm-6">
-                    <div className="single-package-included">
-                      <img src={publicUrl + "assets/img/icons/15.png"} alt="icons" />
-                      <h6>Food</h6>
-                      <p>3 breakfasts, 3 dinners</p>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-sm-6">
-                    <div className="single-package-included">
-                      <img src={publicUrl + "assets/img/icons/16.png"} alt="icons" />
-                      <h6>Accommodations</h6>
-                      <p>3 nights in a hotel</p>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-sm-6">
-                    <div className="single-package-included">
-                      <img src={publicUrl + "assets/img/icons/17.png"} alt="icons" />
-                      <h6>Transportation</h6>
-                      <p>2 boat rides, 1 car ride</p>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-sm-6">
-                    <div className="single-package-included">
-                      <img src={publicUrl + "assets/img/icons/18.png"} alt="icons" />
-                      <h6>Drinks</h6>
-                      <p>Water, tea, coffee, beer</p>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-sm-6">
-                    <div className="single-package-included">
-                      <img src={publicUrl + "assets/img/icons/19.png"} alt="icons" />
-                      <h6>Tickets</h6>
-                      <p>Entrance fee</p>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-sm-6">
-                    <div className="single-package-included">
-                      <img src={publicUrl + "assets/img/icons/20.png"} alt="icons" />
-                      <h6>Equipment</h6>
-                      <p>Outdoor gear, safety</p>
-                    </div>
-                  </div>
+
+              <h4 className="single-page-small-title">{props.servicio.servicio}</h4>
+              <p>{props.servicio.descripcion}</p>
+
+              {/* trip-plan start */}
+              <div className="trip-plan-area">
+
+                <h4 className="single-page-small-title">Lista de Precios</h4>
+                <div className="row justify-content-center">
+                  {
+                    props.servicio.variantes?.sort((a, b) => a.key > b.key ? 1 : -1).map((item, index) => {
+                      return (
+                        <TripPlans key={index} item={item} />
+                      )
+                    })
+                  }
                 </div>
+
               </div>
+              {/* trip-plan end */}
 
-
+              {/* Mapeamos los dias de itinerario */}
               <div className="package-included-location">
-                <h4 className="single-page-small-title">Your Itinerary</h4>
+                <h4 className="single-page-small-title">🗺️ Itineario</h4>
                 <div className="row">
+                  {
+                    props.servicio.itinerario?.sort((a, b) => a.date > b.date ? 1 : -1).map((item, index) => {
+                      count = count + 1
+                      return (
+                        <Itinerario key={index} item={item} count={count} />
+                      )
+                    })
+                  }
 
-                <div className="col-lg-4 col-md-4">
-                    <div className="single-blog">
-                      <div className="p-list">
-                        <div className="list">1</div>
-                        <p>Day 1</p>
-                      </div>
-                      <div className="thumb">
-                        <img src={publicUrl + "assets/img/blog/8.png"} alt="blog" />
-                      </div>
-                      <div className="single-blog-details">
-                        <h4 className="title">Welcome to St. John's</h4>
-                        <p className="content">After a welcome drink, we'll stroll into town and get to know each other over a hyper-local “nose-to-tail” dinner. Show more</p>
-                        <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4 col-md-4">
-                    <div className="single-blog">
-                      <div className="p-list">
-                        <div className="list">2</div>
-                        <p>Day 2</p>
-                      </div>
-                      <div className="thumb">
-                        <img src={publicUrl + "assets/img/blog/1.png"} alt="blog" />
-                      </div>
-                      <div className="single-blog-details">
-                        <h4 className="title">Relaxation &amp; Exploration</h4>
-                        <p className="content">After a welcome drink, we'll stroll into town and get to know each other over a hyper-local “nose-to-tail” dinner. Show more</p>
-                        <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-4 col-md-4">
+                  {/* <div className="col-lg-3 col-md-3 col-6">
                     <div className="single-blog single-blog-after-none">
                       <div className="p-list">
-                        <div className="list">3</div>
-                        <p>Day 3</p>
+                        <div className="list">2</div>
+                        <p>Dia 2</p>
                       </div>
                       <div className="thumb">
                         <img src={publicUrl + "assets/img/blog/9.png"} alt="blog" />
@@ -222,42 +201,80 @@ const Tour_details = (props) => {
                         <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a>
                       </div>
                     </div>
-                  </div>
-
-                  
+                  </div>                  */}
 
                 </div>
               </div>
+
+              <div className="package-included-area">
+                <h4 className="single-page-small-title"> ✅ Tu Viaje Incluye:</h4>
+                <div className="row">
+                  {/* Mapeamos todos los servicios en un contenedor */}
+                  {
+                    props.servicio.incluye?.map((item, index) => {
+                      return (
+                        <IncluyeFicha key={index} item={item} />
+                      )
+                    })
+                  }
+                </div>
+              </div>
+
+              <div className="package-included-area">
+                <h4 className="single-page-small-title"> ❌ Tu viaje NO incluye:</h4>
+                <div className="row">
+                  {/* Mapeamos todos los serviciosNO incluidos */}
+
+                  {
+                    props.servicio.noIncluye?.map((item, index) => {
+                      return (
+                        <NoIncluyeFicha key={index} item={item} />
+                      )
+                    })
+                  }
+                </div>
+              </div>
+
+
+
 
 
               <div className="host-area">
                 <div className="single-host-wrap text-center">
                   <div className="thumb">
-                    <img src={publicUrl + "assets/img/client/02.png"} alt="img" />
+                    <img src={props.servicio.imgurlProveedor} alt="img" />
                   </div>
-                  <h4>Mike At Atlas Obscura Trips</h4>
-                  <p>I'm your Atlas Obscura Trip Coordinator. Since 2016, Atlas Obscura has been offering unusual trips to the world’s most extraordinary places. Our itineraries are developed in close collaboration with the locals and insiders who host them—our global community of explorers</p>
-                  <p> Felicity Roberts will be leading your trip. A rural Newfoundlander, certified herbalist, farmer, writer, wild food advocate, and self relic, Felicity is most on the barrens cutting heather to dye wool or hanging off the edge</p>
-                  <a className="btn btn-yellow" href="#">Contact Host</a>
+                  <h4> {props.servicio.proovedor} </h4>
+                  <p> {props.servicio.descProveedor} </p>
+
+                  {/* WhastApp */}
+                  <a href="https://api.whatsapp.com/send?phone=526567487502&text=Hola Ketzal app, me gustaria mas informacion aceca de tus siguientes trips 🖖🏽" className="buttonWA">Whatsapp Chat</a>
+
                 </div>
               </div>
               <div className="service-location-map">
-                <h4 className="single-page-small-title">Service Location</h4>
+                <h4 className="single-page-small-title">Nuestra Ruta de Viaje</h4>
                 <div className="service-location-map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d649788.5753409272!2d-0.5724199684037448!3d52.92186340524542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d94c3b82ab%3A0x62077a554c8e9a8e!2sPetty%20France%2C%20Westminster%2C%20London%2C%20UK!5e0!3m2!1sen!2sbd!4v1572346566908!5m2!1sen!2sbd" />
+                  <iframe src={urlMaps} ></iframe>
                 </div>
               </div>
+
+
+              {/* REVIEWS clientes */}
+
+
               <div className="comments-area tour-details-review-area">
-                <h4 className="comments-title">Reviews</h4>
+                <h4 className="comments-title">Mira lo que opinan nuestros viajeros</h4>
                 <ul className="comment-list mb-0">
+
                   <li>
                     <div className="single-comment-wrap">
                       <div className="thumb">
                         <img src="assets/img/client/2.png" alt="img" />
                       </div>
                       <div className="content">
-                        <h4 className="title">Tyler Bailey</h4>
-                        <span className="date">13 August 2019</span>
+                        <h4 className="title">Karen Rojas</h4>
+                        <span className="date">28 JUN 2022</span>
                         <div className="tp-review-meta">
                           <i className="ic-yellow fa fa-star" />
                           <i className="ic-yellow fa fa-star" />
@@ -265,18 +282,19 @@ const Tour_details = (props) => {
                           <i className="ic-yellow fa fa-star" />
                           <i className="ic-yellow fa fa-star" />
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
+                        <p>Me la pasé super bien, muy buen servicio. Son bien buena onda los chavos de la agencia. ☺️👌</p>
                       </div>
                     </div>
                   </li>
+
                   <li>
                     <div className="single-comment-wrap">
                       <div className="thumb">
                         <img src="assets/img/client/3.png" alt="img" />
                       </div>
                       <div className="content">
-                        <h4 className="title">Eliza Jordan</h4>
-                        <span className="date">17 SEP 2019</span>
+                        <h4 className="title">Martin Quezada</h4>
+                        <span className="date">30 MAR 2022</span>
                         <div className="tp-review-meta">
                           <i className="ic-yellow fa fa-star" />
                           <i className="ic-yellow fa fa-star" />
@@ -284,22 +302,24 @@ const Tour_details = (props) => {
                           <i className="ic-yellow fa fa-star" />
                           <i className="ic-yellow fa fa-star" />
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
+                        <p>Muy chido el viaje, excelente ambiente y todos muy amables, pasamos un muy buen rato lo volveré a repetir 🤘🏾</p>
                       </div>
                     </div>
                   </li>
+
                 </ul>
                 <div className="btn-wrapper text-right mt-3">
-                  <a className="btn-read-more" href="#"><span>More Review<i className="la la-arrow-right" /></span></a>
+                  <a className="btn-read-more" href="https://www.facebook.com/Wanderlust.Viaja/reviews/" target="_blank"><span>Mas Opiniones...<i className="la la-arrow-right" /></span></a>
                 </div>
               </div>
-              <div className="location-review-area">
+
+              {/* <div className="location-review-area">
                 <form className="tp-form-wrap bg-gray tp-form-wrap-one">
                   <div className="row">
-                    <div className="col-lg-6"><h4 className="single-page-small-title">Write A Review</h4></div>
+                    <div className="col-lg-6"><h4 className="single-page-small-title">Escribe una opinion</h4></div>
                     <div className="col-lg-6">
                       <div className="tp-review-meta text-lg-right">
-                        <span className="mr-3 ml-0">Assigned Rating</span>
+                        <span className="mr-3 ml-0">Calificacion</span>
                         <i className="fa fa-star" />
                         <i className="fa fa-star" />
                         <i className="fa fa-star" />
@@ -309,7 +329,7 @@ const Tour_details = (props) => {
                     </div>
                     <div className="col-lg-6">
                       <label className="single-input-wrap">
-                        <span className="single-input-title">Name</span>
+                        <span className="single-input-title">Nombre</span>
                         <input type="text" />
                       </label>
                     </div>
@@ -321,58 +341,64 @@ const Tour_details = (props) => {
                     </div>
                     <div className="col-lg-12">
                       <label className="single-input-wrap">
-                        <span className="single-input-title">Comments</span>
+                        <span className="single-input-title">Duda o Comentario</span>
                         <textarea defaultValue={""} />
                       </label>
                     </div>
                     <div className="col-12">
-                      <a className="btn btn-yellow" href="#">Send</a>
+                      <a className="btn btn-yellow" href="#">Enviar</a>
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> */}
+
             </div>
           </div>
-          <div className="col-lg-4">
+
+          {/* <div className="col-lg-4">
             <div className="sidebar-area sidebar-area-4">
               <div className="widget tour-list-widget">
                 <div className="widget-tour-list-meta">
-                  <div className="single-widget-search-input-title"><i className="fa fa-user" /> Name</div>
+                  <div className="single-widget-search-input-title"><i className="fa fa-user" /> Nombre</div>
                   <div className="single-widget-search-input">
-                    <input type="text" placeholder="Name" />
+                    <input type="text" placeholder="Nombre" />
                   </div>
                   <div className="single-widget-search-input-title"><i className="fa fa-envelope" /> Email</div>
                   <div className="single-widget-search-input">
                     <input type="text" placeholder="Email" />
                   </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-phone" /> Phone</div>
+                  <div className="single-widget-search-input-title"><i className="fa fa-phone" /> Celular</div>
                   <div className="single-widget-search-input">
-                    <input type="text" placeholder="Phone" />
+                    <input type="text" placeholder="Celular" />
                   </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-calendar-minus-o" /> Date</div>
+                  <div className="single-widget-search-input-title"><i className="fa fa-calendar-minus-o" /> Fecha</div>
                   <div className="single-widget-search-input">
-                    <input type="text" className="departing-date custom-select" placeholder="Departing" />
+                    <input type="text" className="departing-date custom-select" placeholder="Ida" />
                   </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-calendar-minus-o" /> Date</div>
+                  <div className="single-widget-search-input-title"><i className="fa fa-calendar-minus-o" /> Fecha</div>
                   <div className="single-widget-search-input">
-                    <input type="text" className="returning-date custom-select" placeholder="Returning" />
+                    <input type="text" className="returning-date custom-select" placeholder="Vuelta" />
                   </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-keyboard-o" /> Message</div>
+                  <div className="single-widget-search-input-title"><i className="fa fa-keyboard-o" /> Mensaje</div>
                   <div className="single-widget-search-input">
-                    <textarea placeholder="Type" defaultValue={""} />
+                    <textarea placeholder="Escribe tu mensaje..." defaultValue={""} />
                   </div>
                   <div className="text-lg-center text-left">
-                    <a className="btn btn-yellow" href="#">Book Now <i className="fa fa-paper-plane" /></a>
+                    <a className="btn btn-yellow" href="#">Enviar <i className="fa fa-paper-plane" /></a>
                   </div>
                 </div>
               </div>
               <div className="widget_ads">
-                <a href="#"><img className="w-100" src={publicUrl + "assets/img/others/01.png"} alt="img" /></a>
+                <a href="#">
+                  <img src={props.servicio.imgurlFlyer} key={props.servicio.id} alt="image" />
+                </a>
               </div>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </div>
+
     </div>
 
   )

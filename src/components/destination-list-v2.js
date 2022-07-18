@@ -6,7 +6,7 @@ import Subscribe from './section-components/subscribe';
 import Footer from './global-components/footer';
 
 const DestinationLIstV2 = () => {
-    return <div>
+                   return <div>
         <Navbar />
         <PageHeader headertitle="Destinations List"  />
         <DestinationLIst />

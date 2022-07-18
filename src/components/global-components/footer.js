@@ -29,7 +29,7 @@ class Footer_v1 extends Component {
 									</Link>
 									<p>
 									Somos una startup Chihuahuense y 100% Mexicana, la cual busca conectar a los expertos viajeros en los mejores 
-									desetinos de Mexico, con todos esos viajeros que estan dispuestos de conocer mas de nuestro hermoso pais.
+									desetinos de México y Latinoamérica, con todos esos viajeros que estan dispuestos de conocer mas de nuestro hermoso pais y continente.
 									</p>
 									<ul className="social-icon">
 										<li>
@@ -57,7 +57,7 @@ class Footer_v1 extends Component {
 									<p className="telephone">
 										<i className="fa fa-phone base-color" />
 										<span>
-											+52 656 850 4383
+											+52 656 748 7502
 										</span>
 									</p>
 								</div>
@@ -80,12 +80,12 @@ class Footer_v1 extends Component {
 							<div className="footer-widget widget">
 								<h4 className="widget-title">Momentos Instagram</h4>
 								<ul className="widget-instagram-feed">
-									<li><a href="#"><img src={publicUrl + "assets/img/instagram/1.png"} alt="img" /></a></li>
-									<li><a href="#"><img src={publicUrl + "assets/img/instagram/2.png"} alt="img" /></a></li>
-									<li><a href="#"><img src={publicUrl + "assets/img/instagram/3.png"} alt="img" /></a></li>
-									<li><a href="#"><img src={publicUrl + "assets/img/instagram/4.png"} alt="img" /></a></li>
-									<li><a href="#"><img src={publicUrl + "assets/img/instagram/5.png"} alt="img" /></a></li>
-									<li><a href="#"><img src={publicUrl + "assets/img/instagram/6.png"} alt="img" /></a></li>
+									<li><a href="https://www.instagram.com/ketzal_app/" target="_blank"><img src={publicUrl + "assets/img/instagram/1.png"} alt="img" /></a></li>
+									<li><a href="https://www.instagram.com/ketzal_app/" target="_blank"><img src={publicUrl + "assets/img/instagram/2.png"} alt="img" /></a></li>
+									<li><a href="https://www.instagram.com/ketzal_app/" target="_blank"><img src={publicUrl + "assets/img/instagram/3.png"} alt="img" /></a></li>
+									<li><a href="https://www.instagram.com/ketzal_app/" target="_blank"><img src={publicUrl + "assets/img/instagram/4.png"} alt="img" /></a></li>
+									<li><a href="https://www.instagram.com/ketzal_app/" target="_blank"><img src={publicUrl + "assets/img/instagram/5.png"} alt="img" /></a></li>
+									<li><a href="https://www.instagram.com/ketzal_app/" target="_blank"><img src={publicUrl + "assets/img/instagram/6.png"} alt="img" /></a></li>
 								</ul>
 							</div>
 						</div>
