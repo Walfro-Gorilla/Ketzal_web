@@ -5476,6 +5476,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     Trip plan style
 ----------------------------------------------------- */
 .single-trip-plan {
+  margin-bottom: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5509,7 +5510,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  background-image: url("../img/icons/3.png");
+  /* background-image: url("../img/icons/3.png"); */
   z-index: 3;
   background-size: cover;
 }
@@ -5947,9 +5948,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     single-package-included style
 ----------------------------------------------------- */
 .single-package-included {
-  padding: 15px 15px 15px 20px;
+  padding: 15px 25px 15px 15px;
   border: 1px solid #CFD3DE;
-  border-radius: 4px;
+  border-radius: 1px;
   margin-bottom: 10px;
   margin-right: 1px;
 }
@@ -5959,10 +5960,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 .single-package-included h6 {
-  font-size: 15px;
+  font-size: 10px;
   color: var(--main-color-two);
   font-weight: 500;
-  margin-bottom: 3px;
+  margin-bottom: 1px;
 }
 
 .single-package-included p {

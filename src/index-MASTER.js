@@ -34,19 +34,32 @@ import Navbar from './components/global-components/navbar';
 
 import { auth } from './firebase';
 
+//importamos el aviso de cookies
+import CookieConsent from 'react-cookie-consent-notification';
+
 
 const browserHistory = createBrowserHistory();
 
 
+const Root = () => {
 
+	const [firebaseUser, setFirebaseUser] = React.useState(false)
 
-class Root extends Component {	
+	React.useEffect(() => {
+		auth.onAuthStateChanged(user => {
+			console.log(user)
+			if (user) {
+				setFirebaseUser(user)
+			} else {
+				setFirebaseUser(null)
+			}
+		})
+	}, [])
 
-	render() {
-
-		return (
+	return firebaseUser !== false ? (
+		<>
 			<HashRouter basename="/">
-				<Navbar />
+				<Navbar firebaseUser={firebaseUser} />
 
 				<Switch>
 					<Route exact path="/" component={HomeV1} />
@@ -78,12 +91,28 @@ class Root extends Component {
 					<Route path="/blog-v3" component={BlogV3} />
 					<Route path="/blog-details" component={BlogDetails} />
 				</Switch>
-
+				<CookieConsent
+					background={'#000'}
+					bottomPosition={false}
+					buttonText={'I agree'}
+					buttonBackground={'#fff'}
+					buttonColor={'#000'}
+					buttonFontSize={10}
+					color={'#fff'}
+					padding={20}
+				>
+					This website uses cookies to improve service, for analytical and advertising purposes.
+					Please read our <a href={'/cookies'} style={{ color: '#fff' }}>Cookie Policy</a>.
+					Confirm your consent to the use of cookies.
+				</CookieConsent>
 			</HashRouter>
-		)
-	}
+
+		</>
+	) : (
+		<p>Cargando...</p>
+	)
 }
 
-export default Root;
+export default Root
 
 ReactDOM.render(<Root />, document.getElementById('viaje'));

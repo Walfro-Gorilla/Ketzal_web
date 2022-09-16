@@ -13,16 +13,16 @@ const tripPlans = (props) => {
                     <div className="col-lg-4 col-md-6">
                         <div className="single-trip-plan">
                             <div className="thumb single-trip-plan-left">
-                                <img src={publicUrl + "assets/img/others/6.png"} alt="blog" />
+                                <img src={  props.item.img } alt="blog" />
                             </div>
                             <div className="single-trip-plan-right">
                                 <ul className="tp-list-meta border-bt-dot">
-                                    <li><i className="fa fa-calendar-o" /> 8oct</li>
-                                    <li><i className="fa fa-clock-o" /> 4 days</li>
-                                    <li><i className="fa fa-star" /> 4.3</li>
+                                    <li><i className="fa fa-bus" /> bus +</li>
+                                    <li><i className="fa fa-bed" /> hotel +</li>
+                                    <li><i className="fa fa-users" /> guias</li>
                                 </ul>
                                 <div className="tp-price-meta tp-price-meta-cl">
-                                    <p>Precio:</p>
+                                    <p>Habitacion { props.item.nombre }:</p>
                                     <h2> { props.item.contado } <small>$</small></h2>
                                     <del> { props.item.costo } <span>$</span></del>
                                 </div>

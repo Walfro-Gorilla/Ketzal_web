@@ -129,10 +129,10 @@ const Tour_details = (props) => {
               <div className="col-xl-9 col-lg-8">
                 <div className="book-list-warp">
                   <p className="book-list-content">¡Aparta en linea! Y obten tu kit viajero.</p>
-                  <div className="tp-price-meta">
+                  {/* <div className="tp-price-meta">
                     <p>desde</p>
                     <h2>  <small>$</small></h2>
-                  </div>
+                  </div> */}
                 </div>
                 <ul className="tp-list-meta border-tp-solid">
                   <li className="ml-0"><i className="fa fa-calendar-o" />{props.servicio.date1} - {props.servicio.date2} </li>
@@ -156,22 +156,38 @@ const Tour_details = (props) => {
               <h4 className="single-page-small-title">{props.servicio.servicio}</h4>
               <p>{props.servicio.descripcion}</p>
 
-              {/* trip-plan start */}
-              <div className="trip-plan-area">
 
-                <h4 className="single-page-small-title">Lista de Precios</h4>
-                <div className="row justify-content-center">
+
+
+
+              <div className="package-included-area">
+                <h4 className="single-page-small-title"> ✅ Tu Viaje Incluye:</h4>
+                <div className="row">
+                  {/* Mapeamos todos los servicios en un contenedor */}
                   {
-                    props.servicio.variantes?.sort((a, b) => a.key > b.key ? 1 : -1).map((item, index) => {
+                    props.servicio.incluye?.map((item, index) => {
                       return (
-                        <TripPlans key={index} item={item} />
+                        <IncluyeFicha key={index} item={item} />
                       )
                     })
                   }
                 </div>
-
               </div>
-              {/* trip-plan end */}
+
+              <div className="package-included-area">
+                <h4 className="single-page-small-title"> ❌ Tu viaje NO incluye:</h4>
+                <div className="row">
+                  {/* Mapeamos todos los serviciosNO incluidos */}
+
+                  {
+                    props.servicio.noIncluye?.map((item, index) => {
+                      return (
+                        <NoIncluyeFicha key={index} item={item} />
+                      )
+                    })
+                  }
+                </div>
+              </div>
 
               {/* Mapeamos los dias de itinerario */}
               <div className="package-included-location">
@@ -206,34 +222,22 @@ const Tour_details = (props) => {
                 </div>
               </div>
 
-              <div className="package-included-area">
-                <h4 className="single-page-small-title"> ✅ Tu Viaje Incluye:</h4>
-                <div className="row">
-                  {/* Mapeamos todos los servicios en un contenedor */}
+              {/* trip-plan start */}
+              <div className="trip-plan-area">
+
+                <h4 className="single-page-small-title">🎫Precios x viajero</h4>
+                <div className="row justify-content-center">
                   {
-                    props.servicio.incluye?.map((item, index) => {
+                    props.servicio.variantes?.sort((a, b) => a.key > b.key ? 1 : -1).map((item, index) => {
                       return (
-                        <IncluyeFicha key={index} item={item} />
+                        <TripPlans key={index} item={item} />
                       )
                     })
                   }
                 </div>
-              </div>
 
-              <div className="package-included-area">
-                <h4 className="single-page-small-title"> ❌ Tu viaje NO incluye:</h4>
-                <div className="row">
-                  {/* Mapeamos todos los serviciosNO incluidos */}
-
-                  {
-                    props.servicio.noIncluye?.map((item, index) => {
-                      return (
-                        <NoIncluyeFicha key={index} item={item} />
-                      )
-                    })
-                  }
-                </div>
               </div>
+              {/* trip-plan end */}
 
 
 
