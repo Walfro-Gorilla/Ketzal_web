@@ -6,7 +6,7 @@
     ******************************************** */
     if($('.youtube-bg').length){
         $(".youtube-bg").YTPlayer({
-            videoURL: "Sz_1tkcU0Co",
+            videoURL: "HmUwRFjLOqY",
             containment: '.youtube-bg',
             mute: true,
             loop: true,
@@ -527,9 +527,9 @@
         ----------------------------------------------------- */
         if ($('.gallery-slider').length){
             $('.gallery-slider').owlCarousel({
-                items: 3,
+                items: 6,
                 smartSpeed:450,
-                loop: true,
+                loop: false,
                 autoplay: true,
                 autoplayTimeout: 10000,
                 nav: false,

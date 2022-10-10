@@ -42,7 +42,7 @@ const Navbar = (props) => {
 							<li className="tp-lang">
 								<div className="tp-lang-wrap">
 									<select className="select single-select">
-										<option value={1}>Español Mx</option>
+										<option value={1}>Latino Mx</option>
 									</select>
 								</div>
 							</li>
@@ -141,7 +141,7 @@ const Navbar = (props) => {
 						<li className="tp-lang">
 							<div className="tp-lang-wrap">
 								<select className="select single-select">
-									<option value={1}>Español Mx</option>
+									<option value={1}>Latino Mx</option>
 								</select>
 							</div>
 						</li>

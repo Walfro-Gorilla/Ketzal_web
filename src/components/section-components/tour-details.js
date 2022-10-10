@@ -6,7 +6,9 @@ import NoIncluyeFicha from './noIncluyeFicha';
 import Itinerario from './itinerario';
 
 import TripPlans from './tripPlans';
+import GalleryTour from './gallery-tour';
 
+import ButtonWA from '../blog-components/buttonWA';
 
 const Tour_details = (props) => {
 
@@ -18,8 +20,12 @@ const Tour_details = (props) => {
   let count = 0
 
 
-  console.log('props details: ', props)
-  console.log('props INCLUYE: ', props.servicio.incluye)
+  // console.log('props details: ', props)
+  // console.log('props INCLUYE: ', props.servicio.incluye)
+  // console.log('Dias restantes: ', daysLeft)
+  // console.log('INCLUYE----->', props.servicio.incluye)
+
+  console.log("LAs services: ", props.servicio)
 
   //Calculamos los dias totales del tour
   var day1 = new Date(props.servicio.date1);
@@ -28,81 +34,21 @@ const Tour_details = (props) => {
   var difference = Math.abs(day2 - day1);
   var daysLeft = difference / (1000 * 3600 * 24)
 
-  console.log('Dias restantes: ', daysLeft)
+
 
   // const [dataIn, setDataIn] = React.useState();
   // setDataIn(props.servicio.incluye)
 
 
-  console.log('INCLUYE----->', props.servicio.incluye)
 
   return (
 
-    <div className="tour-details-area mg-top--70">
+    <div className="tour-details-area mg-top--130">
       <div className="tour-details-gallery">
         <div className="container-bg bg-dark-blue">
           <div className="container">
-            <div className="gallery-filter-area row">
-              <div className="gallery-sizer col-1" />
 
-              {/* gallery-item */}
-              <div className="tp-gallery-item col-md-5 col-sm-12 col-xs-12 mb-10">
-                <div className="tp-gallery-item-img">
-                  <div className="thumbnails">
-                    <img src={props.servicio.imgurlGaleria6} key={props.servicio.id} alt="image" />
-                    <div className="video-popup-btn">
-                      <a href={url} className="video-play-btn mfp-iframe" tabIndex={0}><i className="fa fa-play" /></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              {/* gallery-item */}
-              <div className="tp-gallery-item col-md-3 col-sm-12 col-xs-12">
-                <div className="tp-gallery-item-img">
-                  <a href="#" data-effect="mfp-zoom-in">
-                    <img src={props.servicio.imgurlGaleria5} key={props.servicio.id} alt="image" />
-                  </a>
-                </div>
-              </div>
-
-              {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
-                <div className="tp-gallery-item-img">
-                  <a href="#" data-effect="mfp-zoom-in">
-                    <img src={props.servicio.imgurlGaleria4} key={props.servicio.id} alt="image" />
-                  </a>
-                </div>
-              </div>
-
-              {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
-                <div className="tp-gallery-item-img">
-                  <a href="#" data-effect="mfp-zoom-in">
-                    <img src={props.servicio.imgurlGaleria3} key={props.servicio.id} alt="image" />
-                  </a>
-                </div>
-              </div>
-
-              {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
-                <div className="tp-gallery-item-img">
-                  <a href="#" data-effect="mfp-zoom-in">
-                    <img src={props.servicio.imgurlGaleria2} key={props.servicio.id} alt="image" />
-                  </a>
-                </div>
-              </div>
-
-              {/* gallery-item */}
-              <div className="tp-gallery-item col-lg-2 col-md-3 col-sm-6 col-6">
-                <div className="tp-gallery-item-img">
-                  <a href="#" data-effect="mfp-zoom-in">
-                    <img src={props.servicio.imgurlGaleria1} key={props.servicio.id} alt="image" />
-                  </a>
-                </div>
-              </div>
-
-            </div>
 
             <div className="row">
               <div className="col-xl-3 col-lg-4">
@@ -142,7 +88,23 @@ const Tour_details = (props) => {
                 </ul>
               </div>
             </div>
+
+            <GalleryTour servicio={props.servicio} />
+
+
+
+            {/* gallery-item 2
+                <div className="tp-gallery-item col-md-3 col-sm-12 col-xs-12">
+                <div className="tp-gallery-item-img">
+                  <a href="#" data-effect="mfp-zoom-in">
+                    <img src={props.servicio.imgurlGaleria5} key={props.servicio.id} alt="image" />
+                  </a>
+                </div>
+              </div> */}
+
+
           </div>
+
         </div>
       </div>
 
@@ -193,14 +155,27 @@ const Tour_details = (props) => {
               <div className="package-included-location">
                 <h4 className="single-page-small-title">🗺️ Itineario</h4>
                 <div className="row">
-                  {
-                    props.servicio.itinerario?.sort((a, b) => a.date > b.date ? 1 : -1).map((item, index) => {
-                      count = count + 1
-                      return (
-                        <Itinerario key={index} item={item} count={count} />
-                      )
-                    })
-                  }
+
+
+
+                    {
+                      props.servicio.itinerario?.sort((a, b) => a.date > b.date ? 1 : -1).map((item, index) => {
+                        count = count + 1
+                        return (
+                            <Itinerario key={index} item={item} count={count} />
+                          
+
+                        )
+                      })
+                    }
+
+
+
+
+
+
+
+
 
                   {/* <div className="col-lg-3 col-md-3 col-6">
                     <div className="single-blog single-blog-after-none">
@@ -251,8 +226,7 @@ const Tour_details = (props) => {
                   <h4> {props.servicio.proovedor} </h4>
                   <p> {props.servicio.descProveedor} </p>
 
-                  {/* WhastApp */}
-                  <a href="https://api.whatsapp.com/send?phone=526567487502&text=Hola Ketzal app, me gustaria mas informacion aceca de tus siguientes trips 🖖🏽" className="buttonWA">Whatsapp Chat</a>
+                  <ButtonWA />
 
                 </div>
               </div>

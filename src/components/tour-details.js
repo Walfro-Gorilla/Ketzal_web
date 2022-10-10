@@ -6,8 +6,12 @@ import Subscribe from './section-components/subscribe';
 import Footer from './global-components/footer';
 import { useParams } from 'react-router-dom';
 
+import BannerVideo from './section-components/video-banner';
+
+
 //Importamos firebase
 import { firebase } from '../firebase'
+import ButtonWA from './blog-components/buttonWA';
 
 
 const TourDetailsPage = () => {
@@ -30,7 +34,7 @@ const TourDetailsPage = () => {
                 //
                 setServicio(arrayData)
 
-                console.log('Servicio: ', id, arrayData.servicio);
+                // console.log('Servicio: ', id, arrayData.servicio);
 
             } catch (error) {
                 console.log('FALLO en:', error)
@@ -40,9 +44,10 @@ const TourDetailsPage = () => {
     }, [])
 
     return <div>
-        
-        <PageHeader servicio={servicio} />
-        <TourDetails servicio={servicio} variants={servicio.vaiantes} /> 
+        <BannerVideo servicio={servicio} />
+        {/* <PageHeader servicio={servicio} /> */}
+
+        <TourDetails servicio={servicio} variants={servicio.vaiantes} />
         <Subscribe />
         <Footer />
     </div>

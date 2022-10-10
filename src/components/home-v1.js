@@ -12,6 +12,8 @@ import Ads from './section-components/ads';
 import Subscribe from './section-components/subscribe';
 import Footer from './global-components/footer';
 
+
+
 //Importamos firebase
 import { firebase } from '../firebase'
 
@@ -52,6 +54,9 @@ const Home_V1 = () => {
 
     return <div>
         <Banner />
+
+        
+
         <Search />
         {/* <Intro /> */}
         <React.StrictMode>
