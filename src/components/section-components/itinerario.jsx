@@ -12,7 +12,7 @@ const itinerario = (props) => {
 
         
 
-            <div className="col-lg-3 col-md-3 col-6">
+            <div className="col-lg-12 col-md-12 col-12">
                 <div className="single-blog">
                     <div className="p-list">
                         <div className="list">{props.count} </div>

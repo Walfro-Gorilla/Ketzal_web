@@ -19,7 +19,7 @@ const service = (props) => {
                         <img src={props.servicio.imgurl} key={props.servicio.id} alt="list" />
                         <div className="d-list-btn-wrap">
                             <div className="d-list-btn viaje-go-top">
-                                <Link className="btn btn-yellow" to={`/tour-details/${props.servicio.id}`} >Aparta ¡YA! <i className="fa fa-paper-plane" /></Link>
+                                <Link className="btn btn-yellow" to={`/tour-details/${props.servicio.id}`} >Mas info <i className="fa fa-paper-plane" /></Link>
                             </div>
                         </div>
                     </div>

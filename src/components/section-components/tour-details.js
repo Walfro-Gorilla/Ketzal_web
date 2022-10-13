@@ -10,6 +10,9 @@ import GalleryTour from './gallery-tour';
 
 import ButtonWA from '../blog-components/buttonWA';
 
+import Carousel from 'react-elastic-carousel';
+
+
 const Tour_details = (props) => {
 
   let publicUrl = process.env.PUBLIC_URL + '/'
@@ -61,8 +64,9 @@ const Tour_details = (props) => {
                     <i className="ic-yellow fa fa-star" />
                     <i className="ic-yellow fa fa-star" />
                     <i className="ic-yellow fa fa-star" />
-                    <i className="fa fa-star" />
-                    <span>4.6</span>
+                    <i className="ic-yellow fa fa-star" />
+
+                    <span>5</span>
                   </div>
                   {/* <div className="all-tags">
                     <a href="#">Eco-Turismo</a>
@@ -75,6 +79,7 @@ const Tour_details = (props) => {
               <div className="col-xl-9 col-lg-8">
                 <div className="book-list-warp">
                   <p className="book-list-content">¡Aparta en linea! Y obten tu kit viajero.</p>
+                  <p> {props.servicio.descripcion} </p>
                   {/* <div className="tp-price-meta">
                     <p>desde</p>
                     <h2>  <small>$</small></h2>
@@ -93,15 +98,6 @@ const Tour_details = (props) => {
 
 
 
-            {/* gallery-item 2
-                <div className="tp-gallery-item col-md-3 col-sm-12 col-xs-12">
-                <div className="tp-gallery-item-img">
-                  <a href="#" data-effect="mfp-zoom-in">
-                    <img src={props.servicio.imgurlGaleria5} key={props.servicio.id} alt="image" />
-                  </a>
-                </div>
-              </div> */}
-
 
           </div>
 
@@ -114,11 +110,6 @@ const Tour_details = (props) => {
         <div className="row">
           <div className="col-lg-12">
             <div className="tour-details-wrap">
-
-              <h4 className="single-page-small-title">{props.servicio.servicio}</h4>
-              <p>{props.servicio.descripcion}</p>
-
-
 
 
 
@@ -151,52 +142,103 @@ const Tour_details = (props) => {
                 </div>
               </div>
 
+
               {/* Mapeamos los dias de itinerario */}
               <div className="package-included-location">
                 <h4 className="single-page-small-title">🗺️ Itineario</h4>
                 <div className="row">
 
-
-
+                  <Carousel>
                     {
                       props.servicio.itinerario?.sort((a, b) => a.date > b.date ? 1 : -1).map((item, index) => {
                         count = count + 1
                         return (
-                            <Itinerario key={index} item={item} count={count} />
-                          
-
+                          <Itinerario key={index} item={item} count={count} />
                         )
                       })
                     }
-
-
-
-
-
-
-
-
-
-                  {/* <div className="col-lg-3 col-md-3 col-6">
-                    <div className="single-blog single-blog-after-none">
-                      <div className="p-list">
-                        <div className="list">2</div>
-                        <p>Dia 2</p>
-                      </div>
-                      <div className="thumb">
-                        <img src={publicUrl + "assets/img/blog/9.png"} alt="blog" />
-                      </div>
-                      <div className="single-blog-details">
-                        <h4 className="title">Farewell &amp; Departure</h4>
-                        <p className="content">After a welcome drink, we'll stroll into town and get to know each other over a hyper-local “nose-to-tail” dinner. Show more</p>
-                        <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a>
-                      </div>
-                    </div>
-                  </div>                  */}
+                  </Carousel>
 
                 </div>
               </div>
 
+              {/* Proveedor area */}
+              <div className="host-area">
+                <div className="single-host-wrap text-center">
+                  <div className="thumb">
+                    <img src={props.servicio.imgurlProveedor} alt="img" />
+                  </div>
+                  <h4> {props.servicio.proovedor} </h4>
+                  <p> {props.servicio.descProveedor} </p>
+                  <ButtonWA />
+                </div>
+              </div>
+
+              {/* Google maps route */}
+              <div className="service-location-map">
+                <h4 className="single-page-small-title">🚌 Nuestra Ruta de Viaje</h4>
+                <div className="service-location-map">
+                  <iframe src={urlMaps} ></iframe>
+                </div>
+              </div>
+
+
+              {/* REVIEWS clientes */}
+
+              <div className="comments-area tour-details-review-area">
+                <h4 className="comments-title">💭 Lo que nuestros viajeros dice...</h4>
+                <ul className="comment-list mb-0">
+                  <Carousel>
+
+                    <li>
+                      <div className="single-comment-wrap">
+                        <div className="thumb">
+                          <img src="assets/img/client/2.png" alt="img" />
+                        </div>
+                        <div className="content">
+                          <h4 className="title">Karen Rojas</h4>
+                          <span className="date">28 JUN 2022</span>
+                          <div className="tp-review-meta">
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                          </div>
+                          <p>Me la pasé super bien, muy buen servicio. Son bien buena onda los chavos de la agencia. ☺️👌</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className="single-comment-wrap">
+                        <div className="thumb">
+                          <img src="assets/img/client/3.png" alt="img" />
+                        </div>
+                        <div className="content">
+                          <h4 className="title">Martin Quezada</h4>
+                          <span className="date">30 MAR 2022</span>
+                          <div className="tp-review-meta">
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                            <i className="ic-yellow fa fa-star" />
+                          </div>
+                          <p>Muy chido el viaje, excelente ambiente y todos muy amables, pasamos un muy buen rato lo volveré a repetir 🤘🏾</p>
+                        </div>
+                      </div>
+                    </li>
+
+                  </Carousel>
+
+                </ul>
+                <div className="btn-wrapper text-right mt-3">
+                  <a className="btn-read-more" href="https://www.facebook.com/Wanderlust.Viaja/reviews/" target="_blank"><span>Mas Opiniones...<i className="la la-arrow-right" /></span></a>
+                </div>
+              </div>
+
+              {/* Pricelist */}
               {/* trip-plan start */}
               <div className="trip-plan-area">
 
@@ -214,165 +256,8 @@ const Tour_details = (props) => {
               </div>
               {/* trip-plan end */}
 
-
-
-
-
-              <div className="host-area">
-                <div className="single-host-wrap text-center">
-                  <div className="thumb">
-                    <img src={props.servicio.imgurlProveedor} alt="img" />
-                  </div>
-                  <h4> {props.servicio.proovedor} </h4>
-                  <p> {props.servicio.descProveedor} </p>
-
-                  <ButtonWA />
-
-                </div>
-              </div>
-              <div className="service-location-map">
-                <h4 className="single-page-small-title">Nuestra Ruta de Viaje</h4>
-                <div className="service-location-map">
-                  <iframe src={urlMaps} ></iframe>
-                </div>
-              </div>
-
-
-              {/* REVIEWS clientes */}
-
-
-              <div className="comments-area tour-details-review-area">
-                <h4 className="comments-title">Mira lo que opinan nuestros viajeros</h4>
-                <ul className="comment-list mb-0">
-
-                  <li>
-                    <div className="single-comment-wrap">
-                      <div className="thumb">
-                        <img src="assets/img/client/2.png" alt="img" />
-                      </div>
-                      <div className="content">
-                        <h4 className="title">Karen Rojas</h4>
-                        <span className="date">28 JUN 2022</span>
-                        <div className="tp-review-meta">
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                        </div>
-                        <p>Me la pasé super bien, muy buen servicio. Son bien buena onda los chavos de la agencia. ☺️👌</p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="single-comment-wrap">
-                      <div className="thumb">
-                        <img src="assets/img/client/3.png" alt="img" />
-                      </div>
-                      <div className="content">
-                        <h4 className="title">Martin Quezada</h4>
-                        <span className="date">30 MAR 2022</span>
-                        <div className="tp-review-meta">
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                          <i className="ic-yellow fa fa-star" />
-                        </div>
-                        <p>Muy chido el viaje, excelente ambiente y todos muy amables, pasamos un muy buen rato lo volveré a repetir 🤘🏾</p>
-                      </div>
-                    </div>
-                  </li>
-
-                </ul>
-                <div className="btn-wrapper text-right mt-3">
-                  <a className="btn-read-more" href="https://www.facebook.com/Wanderlust.Viaja/reviews/" target="_blank"><span>Mas Opiniones...<i className="la la-arrow-right" /></span></a>
-                </div>
-              </div>
-
-              {/* <div className="location-review-area">
-                <form className="tp-form-wrap bg-gray tp-form-wrap-one">
-                  <div className="row">
-                    <div className="col-lg-6"><h4 className="single-page-small-title">Escribe una opinion</h4></div>
-                    <div className="col-lg-6">
-                      <div className="tp-review-meta text-lg-right">
-                        <span className="mr-3 ml-0">Calificacion</span>
-                        <i className="fa fa-star" />
-                        <i className="fa fa-star" />
-                        <i className="fa fa-star" />
-                        <i className="fa fa-star" />
-                        <i className="fa fa-star" />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <label className="single-input-wrap">
-                        <span className="single-input-title">Nombre</span>
-                        <input type="text" />
-                      </label>
-                    </div>
-                    <div className="col-lg-6">
-                      <label className="single-input-wrap">
-                        <span className="single-input-title">Email</span>
-                        <input type="text" />
-                      </label>
-                    </div>
-                    <div className="col-lg-12">
-                      <label className="single-input-wrap">
-                        <span className="single-input-title">Duda o Comentario</span>
-                        <textarea defaultValue={""} />
-                      </label>
-                    </div>
-                    <div className="col-12">
-                      <a className="btn btn-yellow" href="#">Enviar</a>
-                    </div>
-                  </div>
-                </form>
-              </div> */}
-
             </div>
           </div>
-
-          {/* <div className="col-lg-4">
-            <div className="sidebar-area sidebar-area-4">
-              <div className="widget tour-list-widget">
-                <div className="widget-tour-list-meta">
-                  <div className="single-widget-search-input-title"><i className="fa fa-user" /> Nombre</div>
-                  <div className="single-widget-search-input">
-                    <input type="text" placeholder="Nombre" />
-                  </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-envelope" /> Email</div>
-                  <div className="single-widget-search-input">
-                    <input type="text" placeholder="Email" />
-                  </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-phone" /> Celular</div>
-                  <div className="single-widget-search-input">
-                    <input type="text" placeholder="Celular" />
-                  </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-calendar-minus-o" /> Fecha</div>
-                  <div className="single-widget-search-input">
-                    <input type="text" className="departing-date custom-select" placeholder="Ida" />
-                  </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-calendar-minus-o" /> Fecha</div>
-                  <div className="single-widget-search-input">
-                    <input type="text" className="returning-date custom-select" placeholder="Vuelta" />
-                  </div>
-                  <div className="single-widget-search-input-title"><i className="fa fa-keyboard-o" /> Mensaje</div>
-                  <div className="single-widget-search-input">
-                    <textarea placeholder="Escribe tu mensaje..." defaultValue={""} />
-                  </div>
-                  <div className="text-lg-center text-left">
-                    <a className="btn btn-yellow" href="#">Enviar <i className="fa fa-paper-plane" /></a>
-                  </div>
-                </div>
-              </div>
-              <div className="widget_ads">
-                <a href="#">
-                  <img src={props.servicio.imgurlFlyer} key={props.servicio.id} alt="image" />
-                </a>
-              </div>
-            </div>
-          </div> */}
 
         </div>
       </div>

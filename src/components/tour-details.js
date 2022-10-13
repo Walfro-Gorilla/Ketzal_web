@@ -44,12 +44,14 @@ const TourDetailsPage = () => {
     }, [])
 
     return <div>
+
         <BannerVideo servicio={servicio} />
         {/* <PageHeader servicio={servicio} /> */}
 
         <TourDetails servicio={servicio} variants={servicio.vaiantes} />
         <Subscribe />
         <Footer />
+        
     </div>
 }
 
