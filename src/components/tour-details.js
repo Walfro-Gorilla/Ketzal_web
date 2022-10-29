@@ -30,7 +30,7 @@ const TourDetailsPage = () => {
                 const db = firebase.firestore()
                 const doc = await db.collection('clcServicios').doc(id).get()
                 const arrayData = doc.data()
-                console.log('Arraydata: ', arrayData)
+                //console.log('Arraydata: ', arrayData)
                 //
                 setServicio(arrayData)
 

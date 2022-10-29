@@ -10,6 +10,7 @@ import TourList from './components/tour-list';
 import TourListV2 from './components/tour-list-v2';
 import TourListV3 from './components/tour-list-v3';
 import TourDetails from './components/tour-details';
+import ProductDetails from './components/productDetails';
 import DestinationLIst from './components/destination-list';
 import DestinationLIstV2 from './components/destination-list-v2';
 import DestinationDetails from './components/destination-details';
@@ -37,6 +38,8 @@ import { auth } from './firebase';
 //importamos el aviso de cookies
 import CookieConsent from 'react-cookie-consent-notification';
 
+import Carrito from './components/carrito';
+
 
 const browserHistory = createBrowserHistory();
 
@@ -47,7 +50,7 @@ function App() {
 
 	React.useEffect(() => {
 		auth.onAuthStateChanged(user => {
-			console.log(user)
+			console.log("user:",user)
 			if (user) {
 				setFirebaseUser(user)
 			} else {
@@ -57,7 +60,7 @@ function App() {
 	}, [])
 
 	return (
-		<>
+		<div>
 			<HashRouter basename="/">
 				<Navbar firebaseUser={firebaseUser} />
 
@@ -74,6 +77,9 @@ function App() {
 					<Route path="/admin" component={Admin} />
 
 					<Route path="/tour-details/:id" component={TourDetails} />
+					<Route path="/product-details/:id" component={ProductDetails} />
+
+					<Route path="/carrito" component={Carrito} />
 
 					<Route path="/tour-details" component={TourDetails} />
 					<Route path="/destination-list" component={DestinationLIst} />
@@ -107,7 +113,7 @@ function App() {
 				</CookieConsent>
 			</HashRouter>
 
-		</>
+		</div>
 	)
 }
 

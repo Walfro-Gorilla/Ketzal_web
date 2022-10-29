@@ -6,14 +6,14 @@ const Navbar = (props) => {
 
 	let publicUrl = process.env.PUBLIC_URL + '/'
 	let imgattr = 'logo'
-	let anchor =  '#'
+	let anchor = '#'
 
 	const cerrarSesion = () => {
 		auth.signOut()
 			.then(() => {
 				props.history.push('/login')
 			}).catch((error) => {
-				console.log('Error en PUSH: ',error)
+				console.log('Error en PUSH: ', error)
 			})
 	}
 
@@ -46,14 +46,19 @@ const Navbar = (props) => {
 									</select>
 								</div>
 							</li>
-							<li className="search">
+							{/* <li className="search">
 								<i className="ti-search" />
-							</li>
+							</li> */}
 							<li className="notification">
+								<a href="#/carrito">
+									<i className="ti-shopping-cart" />
+								</a>
+							</li>
+							{/* <li className="notification">
 								<a className="signUp-btn" href="#">
 									<i className="fa fa-user-o" />
 								</a>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>
@@ -71,13 +76,13 @@ const Navbar = (props) => {
 						<li>
 							<Link to="/">Inicio</Link>
 						</li>
-						
+
 						{
 							props.firebaseUser !== null ? (
-						<li>
-							<Link to="/admin">Admin</Link>
-						</li>
-						) : null
+								<li>
+									<Link to="/admin">Admin</Link>
+								</li>
+							) : null
 						}
 
 						{

@@ -5,9 +5,9 @@ import parse from 'html-react-parser';
 const service = (props) => {
 
 	let publicUrl = process.env.PUBLIC_URL + '/'
-    console.log('Servicios Props service: ', props)
-    console.log('Servicio solo: ', props.servicio.id)
-    console.log('costo: ',props.servicio.variantes[0].costo)
+    // console.log('Servicios Props service: ', props)
+    // console.log('Servicio solo: ', props.servicio.id)
+    // console.log('costo: ',props.servicio.variantes[0].costo)
 
 
     return (
