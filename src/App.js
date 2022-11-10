@@ -34,6 +34,8 @@ import Admin from './components/new-pages/admin/Admin';
 import Navbar from './components/global-components/navbar';
 
 import { auth } from './firebase';
+import { useUserContext } from './context/userContext';
+import { onAuthStateChanged } from "firebase/auth"
 
 //importamos el aviso de cookies
 import CookieConsent from 'react-cookie-consent-notification';
@@ -47,14 +49,19 @@ const browserHistory = createBrowserHistory();
 function App() {
 
 	const [firebaseUser, setFirebaseUser] = React.useState(false)
+	const { user, setUser } = useUserContext();
+
 
 	React.useEffect(() => {
-		auth.onAuthStateChanged(user => {
-			console.log("user:",user)
-			if (user) {
-				setFirebaseUser(user)
+
+		auth.onAuthStateChanged(dataUser => {
+			//console.log("user:",user)
+			if (dataUser) {
+				setFirebaseUser(dataUser)
+				setUser(dataUser)
 			} else {
 				setFirebaseUser(null)
+				setUser(null)
 			}
 		})
 	}, [])

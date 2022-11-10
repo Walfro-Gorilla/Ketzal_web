@@ -25,6 +25,7 @@ const Home_V1 = () => {
     const [productos, setProductos] = React.useState([]) //Productos
     const [productPrice, setProductPrice] = React.useState([])// Precios
 
+    console.log("PRODUCTOS: ", productos)
     //conectamos a la BD y obtenemos datos al cargar el componente
     React.useEffect(() => {
 
